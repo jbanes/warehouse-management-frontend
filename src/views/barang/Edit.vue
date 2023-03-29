@@ -82,10 +82,12 @@ const updateBarang = async () => {
                 </div>
                 <div class="mt-2">
                     <button
+                        :disabled="barangStore.loading"
                         type="submit"
                         class="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-semibold tracking-widest text-center text-black uppercase transition duration-150 ease-in-out border border-transparent rounded-lg shadow-md active:bg-amber-600 bg-amber-400 hover:bg-amber-500 focus:ring-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
+                        :class="{ 'cursor-not-allowed opacity-50': barangStore.loading }"
                     >
-                        Simpan
+                        {{ barangStore.loading ? "Loading..." : "Update" }}
                     </button>
                 </div>
             </form>

@@ -52,6 +52,7 @@ export const useBarangStore = defineStore("barang", {
             }
         },
         async storeBarang(barang) {
+            this.loading = true;
             this.clearError(); // initialize error object to empty object
             try {
                 const response = await axiosInstance.post("/barang", barang);
@@ -65,7 +66,7 @@ export const useBarangStore = defineStore("barang", {
                 router.push({ name: "barang.index" });
                 toast.success("Barang has been saved successfully.", toastOptions);
             } catch (error) {
-                toast.error("Error storing Barang: " + error.message, toastOptions);
+                toast.error("Error saving Barang: " + error.message, toastOptions);
 
                 if (error.response && error.response.status == 400 && error.response.data.messages) {
                     const errorMessages = error.response.data.messages;
@@ -82,9 +83,14 @@ export const useBarangStore = defineStore("barang", {
                         }
                     }
                 }
+            } finally {
+                setTimeout(() => {
+                    this.loading = false;
+                }, 300);
             }
         },
         async updateBarang(barang) {
+            this.loading = true;
             this.clearError(); // initialize error object to empty object
             try {
                 const response = await axiosInstance.put("/barang", barang);
@@ -113,9 +119,14 @@ export const useBarangStore = defineStore("barang", {
                         }
                     });
                 }
+            } finally {
+                setTimeout(() => {
+                    this.loading = false;
+                }, 300);
             }
         },
         async deleteBarang(id) {
+            this.loading = true;
             try {
                 await axiosInstance.delete(`/barang/${id}`);
                 this.barangs = this.barangs.filter((item) => item.id !== id);
@@ -123,6 +134,8 @@ export const useBarangStore = defineStore("barang", {
                 toast.success("Barang has been deleted successfully.", toastOptions);
             } catch (error) {
                 toast.error("Error deleting Barang: " + error.message, toastOptions);
+            } finally {
+                this.loading = false;
             }
         },
         clearError() {

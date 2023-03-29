@@ -2,6 +2,7 @@
 import { ref, watchEffect, onMounted } from "vue";
 import { useBarangStore } from "@/stores/barang";
 import TableSkeleton from "@/components/skeleton/TableSkeleton.vue";
+import DeleteModal from "./DeleteModal.vue";
 
 const barangStore = useBarangStore();
 const barangs = ref(barangStore.barangs);
@@ -13,10 +14,10 @@ onMounted(async () => {
     await barangStore.fetchBarang();
 });
 
-async function deleteBarang(id) {
-    if (confirm("Apakah anda yakin ingin menghapus barang ini?")) {
-        await barangStore.deleteBarang(id);
-    }
+const modalId = ref(0);
+
+function deleteModal(id) {
+    modalId.value = id;
 }
 </script>
 
@@ -76,7 +77,7 @@ async function deleteBarang(id) {
                                                 </RouterLink>
                                                 |
                                                 <button
-                                                    @click.prevent="deleteBarang(barang.id)"
+                                                    @click.prevent="deleteModal(barang.id)"
                                                     class="text-indigo-600 hover:text-indigo-900"
                                                 >
                                                     Hapus
@@ -102,4 +103,6 @@ async function deleteBarang(id) {
             </div>
         </div>
     </main>
+
+    <DeleteModal :modal-id="modalId" @close="modalId = 0" />
 </template>
