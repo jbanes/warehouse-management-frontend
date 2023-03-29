@@ -33,11 +33,16 @@ export const useStockStore = defineStore("stock", {
         async sendStock(stock) {
             this.clearError(); // initialize error object to empty object
             try {
-                await axiosInstance.post("/stock", stock);
+                const response = await axiosInstance.post("/stock", stock);
+                response.data;
                 toast.success("Stock berhasil dikirim", toastOptions);
                 router.push({ name: "home" });
             } catch (error) {
-                toast.error("Error sending stock: " + error.message, toastOptions);
+                if (error.response.data.message === 'Stock not enough') {
+                    toast.error("Error sending stock: " + error.response.data.message, toastOptions);
+                } else {
+                    toast.error("Error sending stock: " + error.message, toastOptions);
+                }
                 this.error = error.response.data.errors;
             }
         },
