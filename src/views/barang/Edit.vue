@@ -14,9 +14,9 @@ const form = ref({
 const route = useRoute();
 const id = route.params.id;
 
-onMounted(() => {
+onMounted(async () => {
     if (id) {
-        barangStore.fetchBarangById(id).then((barang) => {
+        await barangStore.fetchBarangById(id).then((barang) => {
             form.value = barang;
         });
     }

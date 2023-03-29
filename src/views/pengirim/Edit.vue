@@ -13,9 +13,9 @@ const form = ref({
 const route = useRoute();
 const id = route.params.id;
 
-onMounted(() => {
+onMounted(async () => {
     if (id) {
-        pengirimStore.fetchShipperById(id).then((shipper) => {
+        await pengirimStore.fetchShipperById(id).then((shipper) => {
             form.value = shipper;
         });
     }
@@ -34,8 +34,8 @@ const clearError = () => {
 };
 onBeforeRouteLeave(clearError);
 
-const updateShipper = () => {
-    pengirimStore.updateShipper(form.value);
+const updateShipper = async () => {
+    await pengirimStore.updateShipper(form.value);
 };
 </script>
 

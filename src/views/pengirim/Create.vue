@@ -26,8 +26,8 @@ const clearError = () => {
 };
 onBeforeRouteLeave(clearError);
 
-const saveShipper = () => {
-    pengirimStore.storeShipper(form);
+const saveShipper = async () => {
+    await pengirimStore.storeShipper(form);
 };
 </script>
 

@@ -25,6 +25,7 @@ onMounted(async () => {
     } else {
         document.title = "Barang Keluar";
     }
+
     await barangStore.fetchBarang();
     await pengirimStore.fetchShipper();
 });
