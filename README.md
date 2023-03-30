@@ -1,29 +1,27 @@
-# management-gudang
+# Warehouse Management Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a web frontend for the warehouse management system built with Vue 3 in Vite, Pinia and Tailwind CSS. It provides a user interface for managing the items, shippers and shipments in the warehouse.
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+-   Items Management
+-   Shipper Management
+-   Shipping In
+-   Shipping Out
 
-## Customize configuration
+## Tech Stack
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+-   Vite
+-   Vue 3
+-   Pinia
+-   Tailwind CSS
 
-## Project Setup
+## Getting Started
 
-```sh
-npm install
-```
+To get started with this project, follow these steps:
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+1. Clone this repository to your local machine.
+2. Open a terminal window and navigate to the project folder.
+3. Run `npm install` to install the dependencies.
+4. Run `npm run dev` to start the development server.
+5. Open your browser and navigate to http://localhost:5173.
