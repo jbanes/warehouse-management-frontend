@@ -56,6 +56,7 @@ export const usePengirimStore = defineStore("pengirim", {
             }
         },
         async storeShipper(shipper) {
+            this.loading = true;
             this.clearError(); // initialize error object to empty object
             try {
                 const response = await axiosInstance.post("/shipper", shipper);
@@ -83,9 +84,14 @@ export const usePengirimStore = defineStore("pengirim", {
                         }
                     }
                 }
+            } finally {
+                setTimeout(() => {
+                    this.loading = false;
+                }, 300);
             }
         },
         async updateShipper(shipper) {
+            this.loading = true;
             this.clearError(); // initialize error object to empty object
             try {
                 const response = await axiosInstance.put("/shipper", shipper);
@@ -112,9 +118,14 @@ export const usePengirimStore = defineStore("pengirim", {
                         }
                     }
                 }
+            } finally {
+                setTimeout(() => {
+                    this.loading = false;
+                }, 300);
             }
         },
         async deleteShipper(id) {
+            this.loading = true;
             try {
                 await axiosInstance.delete("/shipper/" + id);
                 this.shippers = this.shippers.filter((item) => item.id !== id);
@@ -122,6 +133,8 @@ export const usePengirimStore = defineStore("pengirim", {
                 toast.success("Shipper has been deleted successfully.", toastOptions)
             } catch (error) {
                 toast.error("Error deleting Shipper: " + error.message, toastOptions);
+            } finally {
+                this.loading = false;
             }
         },
         async getShippingByShipper(id) {

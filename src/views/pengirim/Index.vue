@@ -1,8 +1,9 @@
 <script setup>
 import { onMounted, ref, watchEffect } from "vue";
 import { usePengirimStore } from "@/stores/pengirim";
-import TableSkeleton from "@/components/skeleton/TableSkeleton.vue";
 import router from "@/router";
+import TableSkeleton from "@/components/skeleton/TableSkeleton.vue";
+import DeleteModal from "./DeleteModal.vue";
 
 const pengirimStore = usePengirimStore();
 const shippers = ref(pengirimStore.shippers);
@@ -18,10 +19,10 @@ function showPengirmanShipper(id) {
     router.push({ name: "pengirim.shipping", params: { id: id } });
 }
 
-async function deleteShipper(id) {
-    if (confirm("Apakah anda yakin ingin menghapus pengirim ini?")) {
-        await pengirimStore.deleteShipper(id);
-    }
+const modalId = ref(0);
+
+function deleteModalShipper(id) {
+    modalId.value = id;
 }
 </script>
 
@@ -71,7 +72,7 @@ async function deleteShipper(id) {
                                                 </RouterLink>
                                                 |
                                                 <button
-                                                    @click.prevent="deleteShipper(shipper.id)"
+                                                    @click.prevent="deleteModalShipper(shipper.id)"
                                                     href="#"
                                                     class="text-indigo-600 hover:text-indigo-900"
                                                 >
@@ -98,4 +99,6 @@ async function deleteShipper(id) {
             </div>
         </div>
     </main>
+
+    <DeleteModal :modal-id="modalId" @close="modalId = 0" />
 </template>

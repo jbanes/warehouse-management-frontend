@@ -48,7 +48,18 @@ onMounted(async () => {
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-slate-200">
-                                        <tr v-for="(shipping, index) in shippings" :key="index">
+                                        <tr v-if="!shippings.length">
+                                            <td class="px-6 py-4 whitespace-nowrap" colspan="3">
+                                                <div class="text-sm text-center text-slate-900">
+                                                    <span
+                                                        class="px-3.5 py-1 rounded-md bg-amber-200 tracking-widest font-semibold text-amber-900 uppercase"
+                                                    >
+                                                        No shipping found
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr v-else v-for="(shipping, index) in shippings" :key="index">
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="text-sm text-slate-900">{{ shipping.stok }}</div>
                                                 <div class="text-sm text-slate-500">{{ shipping.tipe }}</div>
