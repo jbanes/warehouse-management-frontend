@@ -138,11 +138,16 @@ export const usePengirimStore = defineStore("pengirim", {
             }
         },
         async getShippingByShipper(id) {
+            this.loading = true;
             try {
                 const response = await axiosInstance.get("/shipper/" + id + "/shipping");
                 this.shipping = response.data;
             } catch (error) {
                 toast.error("Error get shipping by shipper: " + error.message, toastOptions);
+            } finally {
+                setTimeout(() => {
+                    this.loading = false;
+                }, 300);
             }
         },
         clearError() {
