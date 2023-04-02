@@ -28,11 +28,7 @@ export const usePengirimStore = defineStore("pengirim", {
             codeShipper: '',
         },
     }),
-    getters: {
-        getShippingByShipperId: (state) => (id) => {
-            return state.shippers.find((shipper) => shipper.id === id);
-        },
-    },
+    getters: {},
     actions: {
         async fetchShipper() {
             this.loading = true;
@@ -127,7 +123,7 @@ export const usePengirimStore = defineStore("pengirim", {
         async deleteShipper(id) {
             this.loading = true;
             try {
-                await axiosInstance.delete("/shipper/" + id);
+                await axiosInstance.delete(`/shipper/${id}`);
                 this.shippers = this.shippers.filter((item) => item.id !== id);
                 router.push({ name: "pengirim.index" });
                 toast.success("Shipper has been deleted successfully.", toastOptions)
@@ -140,7 +136,7 @@ export const usePengirimStore = defineStore("pengirim", {
         async getShippingByShipper(id) {
             this.loading = true;
             try {
-                const response = await axiosInstance.get("/shipper/" + id + "/shipping");
+                const response = await axiosInstance.get(`/shipper/${id}/shipping`);
                 this.shipping = response.data;
             } catch (error) {
                 toast.error("Error get shipping by shipper: " + error.message, toastOptions);
