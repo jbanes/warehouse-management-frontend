@@ -33,7 +33,7 @@ export const useBarangStore = defineStore("barang", {
         async fetchBarang() {
             this.loading = true;
             try {
-                const response = await axiosInstance.get("/barang");
+                const response = await axiosInstance.get("/product");
                 this.barangs = response.data;
             } catch (error) {
                 toast.error("Error fetching Barang: " + error.message, toastOptions);
@@ -45,7 +45,7 @@ export const useBarangStore = defineStore("barang", {
         },
         async fetchBarangById(id) {
             try {
-                const response = await axiosInstance.get(`/barang/${id}`);
+                const response = await axiosInstance.get(`/product/${id}`);
                 return response.data;
             } catch (error) {
                 toast.error("Error fetching Barang: " + error.message, toastOptions);
@@ -55,7 +55,7 @@ export const useBarangStore = defineStore("barang", {
             this.loading = true;
             this.clearError(); // initialize error object to empty object
             try {
-                const response = await axiosInstance.post("/barang", barang);
+                const response = await axiosInstance.post("/product", barang);
                 this.barangs = this.barangs.map((item) => {
                     if (item.id === barang.id) {
                         return response.data;
@@ -93,7 +93,7 @@ export const useBarangStore = defineStore("barang", {
             this.loading = true;
             this.clearError(); // initialize error object to empty object
             try {
-                const response = await axiosInstance.put("/barang", barang);
+                const response = await axiosInstance.put("/product", barang);
                 const updatedBarang = response.data;
                 const index = this.barangs.findIndex((item) => item.id === updatedBarang.id);
                 if (index !== -1) {
@@ -128,7 +128,7 @@ export const useBarangStore = defineStore("barang", {
         async deleteBarang(id) {
             this.loading = true;
             try {
-                await axiosInstance.delete(`/barang/${id}`);
+                await axiosInstance.delete(`/product/${id}`);
                 this.barangs = this.barangs.filter((item) => item.id !== id);
                 router.push({ name: "barang.index" });
                 toast.success("Barang has been deleted successfully.", toastOptions);
