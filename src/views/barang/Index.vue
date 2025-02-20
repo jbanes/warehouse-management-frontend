@@ -80,7 +80,7 @@ function deleteModal(id) {
                                                     @click.prevent="deleteModal(barang.id)"
                                                     class="text-indigo-600 hover:text-indigo-900"
                                                 >
-                                                    Hapus
+                                                    Delete
                                                 </button>
                                             </td>
                                         </tr>
