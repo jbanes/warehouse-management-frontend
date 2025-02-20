@@ -25,7 +25,7 @@ const router = createRouter({
       name: 'barang',
       component: AuthLayout,
       meta: {
-        title: `${import.meta.env.VITE_APP_NAME} - Barang`
+        title: `${import.meta.env.VITE_APP_NAME} - Products`
       },
       children: [
         {
@@ -38,7 +38,7 @@ const router = createRouter({
           name: 'barang.create',
           component: () => import('@/views/barang/Create.vue'),
           meta: {
-            title: `${import.meta.env.VITE_APP_NAME} - Tambah Barang`
+            title: `${import.meta.env.VITE_APP_NAME} - Add Product`
           }
         },
         {
@@ -46,7 +46,7 @@ const router = createRouter({
           name: 'barang.edit',
           component: () => import('@/views/barang/Edit.vue'),
           meta: {
-            title: `${import.meta.env.VITE_APP_NAME} - Edit Barang`
+            title: `${import.meta.env.VITE_APP_NAME} - Edit Product`
           }
         },
       ]
