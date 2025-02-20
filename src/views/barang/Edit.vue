@@ -6,9 +6,9 @@ import { onBeforeRouteLeave, useRoute } from "vue-router";
 const barangStore = useBarangStore();
 
 const form = ref({
-    nama: "",
-    kategori: "",
-    berat: "",
+    name: "",
+    category: "",
+    weight: "",
 });
 
 const route = useRoute();
@@ -23,9 +23,9 @@ onMounted(async () => {
 });
 
 watch(
-    () => form.value.kategori,
+    () => form.value.category,
     (newValue) => {
-        form.value.kategori = newValue.toUpperCase();
+        form.value.category = newValue.toUpperCase();
     }
 );
 
@@ -45,40 +45,40 @@ const updateBarang = async () => {
         <div class="mt-10">
             <form @submit.prevent="updateBarang" class="max-w-sm mx-auto">
                 <div class="mb-2">
-                    <label for="nama" class="block text-sm font-medium text-slate-700">Nama</label>
+                    <label for="name" class="block text-sm font-medium text-slate-700">Name</label>
                     <input
                         type="text"
-                        id="nama"
-                        v-model="form.nama"
+                        id="name"
+                        v-model="form.name"
                         class="block w-full px-3 py-2 border-2 rounded-md border-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 focus:border-amber-500 dark:focus:border-amber-600 focus:ring-amber-500 dark:focus:ring-amber-600 text-slate-900 sm:text-sm focus:outline-none"
-                        :class="{ 'border-rose-500': error.nama }"
-                        placeholder="Nama barang"
+                        :class="{ 'border-rose-500': error.name }"
+                        placeholder="Name barang"
                     />
-                    <span v-if="error.nama" class="text-sm text-rose-500">{{ error.nama }}</span>
+                    <span v-if="error.name" class="text-sm text-rose-500">{{ error.name }}</span>
                 </div>
                 <div class="mb-2">
-                    <label for="kategori" class="block text-sm font-medium text-slate-700">Kategori</label>
+                    <label for="category" class="block text-sm font-medium text-slate-700">Category</label>
                     <input
                         type="text"
-                        id="kategori"
-                        v-model="form.kategori"
+                        id="category"
+                        v-model="form.category"
                         class="block w-full px-3 py-2 border-2 rounded-md border-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 focus:border-amber-500 dark:focus:border-amber-600 focus:ring-amber-500 dark:focus:ring-amber-600 text-slate-900 sm:text-sm focus:outline-none"
-                        :class="{ 'border-rose-500': error.kategori }"
-                        placeholder="Kategori"
+                        :class="{ 'border-rose-500': error.category }"
+                        placeholder="Category"
                     />
-                    <span v-if="error.kategori" class="text-sm text-rose-500">{{ error.kategori }}</span>
+                    <span v-if="error.category" class="text-sm text-rose-500">{{ error.category }}</span>
                 </div>
                 <div class="mb-2">
-                    <label for="berat" class="block text-sm font-medium text-slate-700">Berat</label>
+                    <label for="weight" class="block text-sm font-medium text-slate-700">Weight</label>
                     <input
                         type="number"
-                        id="berat"
-                        v-model="form.berat"
+                        id="weight"
+                        v-model="form.weight"
                         class="block w-full px-3 py-2 border-2 rounded-md border-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 focus:border-amber-500 dark:focus:border-amber-600 focus:ring-amber-500 dark:focus:ring-amber-600 text-slate-900 sm:text-sm focus:outline-none"
-                        :class="{ 'border-rose-500': error.berat }"
-                        placeholder="Berat"
+                        :class="{ 'border-rose-500': error.weight }"
+                        placeholder="Weight"
                     />
-                    <span v-if="error.berat" class="text-sm text-rose-500">{{ error.berat }}</span>
+                    <span v-if="error.weight" class="text-sm text-rose-500">{{ error.weight }}</span>
                 </div>
                 <div class="mt-2">
                     <button
