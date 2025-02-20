@@ -94,7 +94,7 @@ function deleteModalShipper(id) {
                     :to="{ name: 'pengirim.create' }"
                     class="block py-2 text-sm font-semibold tracking-widest text-center uppercase border rounded-md shadow border-slate-300 text-slate-900 active:bg-amber-600 bg-amber-400 hover:bg-amber-500 focus:ring-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
                 >
-                    Tambah Pengirim
+                    Add Shipper
                 </RouterLink>
             </div>
         </div>
