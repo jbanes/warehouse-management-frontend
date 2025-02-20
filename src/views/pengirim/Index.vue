@@ -61,7 +61,7 @@ function deleteModalShipper(id) {
                                                     @click.prevent="showPengirmanShipper(shipper.id)"
                                                     class="text-indigo-600 hover:text-indigo-900"
                                                 >
-                                                    Pengiriman
+                                                    Shipments
                                                 </button>
                                                 |
                                                 <RouterLink
@@ -76,7 +76,7 @@ function deleteModalShipper(id) {
                                                     href="#"
                                                     class="text-indigo-600 hover:text-indigo-900"
                                                 >
-                                                    Hapus
+                                                    Delete
                                                 </button>
                                             </td>
                                         </tr>
