@@ -38,13 +38,13 @@ function deleteModal(id) {
                                                 scope="col"
                                                 class="px-6 py-3 text-xs font-medium tracking-wider text-left uppercase text-slate-500"
                                             >
-                                                Nama
+                                                Name
                                             </th>
                                             <th
                                                 scope="col"
                                                 class="px-6 py-3 text-xs font-medium tracking-wider text-left uppercase text-slate-500"
                                             >
-                                                Berat
+                                                Weight
                                             </th>
                                             <th
                                                 scope="col"
@@ -60,14 +60,14 @@ function deleteModal(id) {
                                     <tbody class="bg-white divide-y divide-slate-200">
                                         <tr v-for="barang in barangs" :key="barang.id">
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-slate-900">{{ barang.nama }}</div>
-                                                <div class="text-sm text-slate-500">{{ barang.kategori }}</div>
+                                                <div class="text-sm text-slate-900">{{ barang.name }}</div>
+                                                <div class="text-sm text-slate-500">{{ barang.category }}</div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-slate-900">{{ barang.berat }} KG</div>
+                                                <div class="text-sm text-slate-900">{{ barang.weight }} KG</div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-slate-900">{{ barang.stok }}</div>
+                                                <div class="text-sm text-slate-900">{{ barang.stock }}</div>
                                             </td>
                                             <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                                 <RouterLink
@@ -98,7 +98,7 @@ function deleteModal(id) {
                     :to="{ name: 'barang.create' }"
                     class="block py-2 text-sm font-semibold tracking-widest text-center uppercase border rounded-md shadow border-slate-300 text-slate-900 active:bg-amber-600 bg-amber-400 hover:bg-amber-500 focus:ring-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
                 >
-                    Tambah Barang
+                    Add Product
                 </RouterLink>
             </div>
         </div>
