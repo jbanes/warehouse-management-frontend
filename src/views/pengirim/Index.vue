@@ -43,7 +43,7 @@ function deleteModalShipper(id) {
                                                 scope="col"
                                                 class="px-6 py-3 text-xs font-medium tracking-wider text-left uppercase text-slate-500"
                                             >
-                                                Nama
+                                                Name
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
                                                 <span class="sr-only">Edit</span>
@@ -53,8 +53,8 @@ function deleteModalShipper(id) {
                                     <tbody class="bg-white divide-y divide-slate-200">
                                         <tr v-for="shipper in shippers" :key="shipper.id">
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-slate-900">{{ shipper.nama }}</div>
-                                                <div class="text-sm text-slate-500">{{ shipper.codeShipper }}</div>
+                                                <div class="text-sm text-slate-900">{{ shipper.name }}</div>
+                                                <div class="text-sm text-slate-500">{{ shipper.shortName }}</div>
                                             </td>
                                             <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                                 <button
