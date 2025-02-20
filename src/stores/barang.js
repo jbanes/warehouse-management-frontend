@@ -23,9 +23,9 @@ export const useBarangStore = defineStore("barang", {
         barangs: [],
         loading: false,
         error: {
-            nama: '',
-            kategori: '',
-            harga: '',
+            name: '',
+            category: '',
+            price: '',
         },
     }),
     getters: {},
@@ -72,14 +72,14 @@ export const useBarangStore = defineStore("barang", {
                     const errorMessages = error.response.data.messages;
                     for (let i = 0; i < errorMessages.length; i++) {
                         const errorMessage = errorMessages[i];
-                        if (errorMessage.includes('Nama')) {
-                            this.error.nama = errorMessage;
+                        if (errorMessage.includes('Name')) {
+                            this.error.name = errorMessage;
                         }
-                        if (errorMessage.includes('Kategori')) {
-                            this.error.kategori = errorMessage;
+                        if (errorMessage.includes('Category')) {
+                            this.error.category = errorMessage;
                         }
-                        if (errorMessage.includes('Berat')) {
-                            this.error.berat = errorMessage;
+                        if (errorMessage.includes('Weight')) {
+                            this.error.weight = errorMessage;
                         }
                     }
                 }
@@ -108,14 +108,14 @@ export const useBarangStore = defineStore("barang", {
                 if (error.response && error.response.status == '400' && error.response.data.messages) {
                     const errorMessages = error.response.data.messages;
                     errorMessages.forEach(errorMessage => {
-                        if (errorMessage.includes('Nama')) {
-                            this.error.nama = errorMessage;
+                        if (errorMessage.includes('Name')) {
+                            this.error.name = errorMessage;
                         }
-                        if (errorMessage.includes('Kategori')) {
-                            this.error.kategori = errorMessage;
+                        if (errorMessage.includes('Category')) {
+                            this.error.category = errorMessage;
                         }
-                        if (errorMessage.includes('Berat')) {
-                            this.error.berat = errorMessage;
+                        if (errorMessage.includes('Weight')) {
+                            this.error.weight = errorMessage;
                         }
                     });
                 }
