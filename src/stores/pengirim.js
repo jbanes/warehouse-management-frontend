@@ -24,8 +24,8 @@ export const usePengirimStore = defineStore("pengirim", {
         shipping: {},
         loading: false,
         error: {
-            nama: '',
-            codeShipper: '',
+            name: '',
+            shortName: '',
         },
     }),
     getters: {},
@@ -72,11 +72,11 @@ export const usePengirimStore = defineStore("pengirim", {
                     const errorMessages = error.response.data.messages;
                     for (let i = 0; i < errorMessages.length; i++) {
                         const errorMessage = errorMessages[i];
-                        if (errorMessage.includes('Nama')) {
-                            this.error.nama = errorMessage;
+                        if (errorMessage.includes('Name')) {
+                            this.error.name = errorMessage;
                         }
-                        if (errorMessage.includes('Code Shipper')) {
-                            this.error.codeShipper = errorMessage;
+                        if (errorMessage.includes('Short Name')) {
+                            this.error.shortName = errorMessage;
                         }
                     }
                 }
@@ -106,11 +106,11 @@ export const usePengirimStore = defineStore("pengirim", {
                     const errorMessages = error.response.data.messages;
                     for (let i = 0; i < errorMessages.length; i++) {
                         const errorMessage = errorMessages[i];
-                        if (errorMessage.includes('Nama')) {
-                            this.error.nama = errorMessage;
+                        if (errorMessage.includes('Name')) {
+                            this.error.name = errorMessage;
                         }
-                        if (errorMessage.includes('Code Shipper')) {
-                            this.error.codeShipper = errorMessage;
+                        if (errorMessage.includes('Short Name')) {
+                            this.error.shortName = errorMessage;
                         }
                     }
                 }
