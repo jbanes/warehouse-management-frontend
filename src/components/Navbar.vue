@@ -65,13 +65,13 @@ const isOpen = ref(false);
                         :to="{ name: 'barang.index' }"
                         class="px-2.5 py-2 text-slate-700 transition-colors duration-300 transform rounded-lg dark:text-slate-200 hover:bg-amber-200 dark:hover:bg-slate-700 md:mx-2"
                         :class="{ 'bg-amber-200 dark:bg-slate-700': $route.path.includes('barang') }"
-                        >Barang
+                        >Products
                     </RouterLink>
                     <RouterLink
                         :to="{ name: 'pengirim.index' }"
                         class="px-2.5 py-2 text-slate-700 transition-colors duration-300 transform rounded-lg dark:text-slate-200 hover:bg-amber-200 dark:hover:bg-slate-700 md:mx-2"
                         :class="{ 'bg-amber-200 dark:bg-slate-700': $route.path.includes('pengirim') }"
-                        >Pengirim
+                        >Shippers
                     </RouterLink>
                 </div>
             </div>
