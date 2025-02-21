@@ -6,8 +6,8 @@ import { onBeforeRouteLeave, useRoute } from "vue-router";
 const pengirimStore = usePengirimStore();
 
 const form = ref({
-    nama: "",
-    codeShipper: "",
+    name: "",
+    shortName: "",
 });
 
 const route = useRoute();
@@ -22,9 +22,9 @@ onMounted(async () => {
 });
 
 watch(
-    () => form.value.codeShipper,
+    () => form.value.shortName,
     (newValue) => {
-        form.value.codeShipper = newValue.toUpperCase();
+        form.value.shortName = newValue.toUpperCase();
     }
 );
 
@@ -44,28 +44,28 @@ const updateShipper = async () => {
         <div class="mt-10">
             <form @submit.prevent="updateShipper" class="max-w-sm mx-auto">
                 <div class="mb-2">
-                    <label for="nama" class="block text-sm font-medium text-gray-700">Nama pengirim</label>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name of Shipper</label>
                     <input
-                        v-model="form.nama"
+                        v-model="form.name"
                         type="text"
-                        id="nama"
+                        id="name"
                         class="block w-full px-3 py-2 border-2 rounded-md border-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 focus:border-amber-500 dark:focus:border-amber-600 focus:ring-amber-500 dark:focus:ring-amber-600 text-slate-900 sm:text-sm focus:outline-none"
-                        :class="{ 'border-red-500': error.nama }"
-                        placeholder="nama pengirim"
+                        :class="{ 'border-red-500': error.name }"
+                        placeholder="name"
                     />
-                    <span v-if="error.nama" class="text-sm text-rose-500">{{ error.nama }}</span>
+                    <span v-if="error.name" class="text-sm text-rose-500">{{ error.name }}</span>
                 </div>
                 <div class="mb-2">
-                    <label for="code" class="block text-sm font-medium text-gray-700">ID pengirim</label>
+                    <label for="code" class="block text-sm font-medium text-gray-700">ID of Shipper</label>
                     <input
-                        v-model="form.codeShipper"
+                        v-model="form.shortName"
                         type="text"
                         id="code"
                         class="block w-full px-3 py-2 border-2 rounded-md border-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 focus:border-amber-500 dark:focus:border-amber-600 focus:ring-amber-500 dark:focus:ring-amber-600 text-slate-900 sm:text-sm focus:outline-none"
-                        :class="{ 'border-rose-500': error.codeShipper }"
+                        :class="{ 'border-rose-500': error.shortName }"
                         placeholder="kode pengirim"
                     />
-                    <span v-if="error.codeShipper" class="text-sm text-rose-500">{{ error.codeShipper }}</span>
+                    <span v-if="error.shortName" class="text-sm text-rose-500">{{ error.shortName }}</span>
                 </div>
                 <div class="mt-2">
                     <button
