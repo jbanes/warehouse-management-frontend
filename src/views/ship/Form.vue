@@ -21,9 +21,9 @@ watchEffect(() => {
 
 onMounted(async () => {
     if (type === "IN") {
-        document.title = "Barang Masuk";
+        document.title = "Recieve Goods";
     } else {
-        document.title = "Barang Keluar";
+        document.title = "Ship Goods";
     }
 
     await barangStore.fetchBarang();
@@ -31,16 +31,16 @@ onMounted(async () => {
 });
 
 const form = ref({
-    tipe: "",
+    type: "",
     shipperId: "",
-    barangId: "",
+    productId: "",
     stock: 0,
 });
 
 const stockStore = useStockStore();
 
 const sendStock = async () => {
-    form.value.tipe = type;
+    form.value.type = type;
     await stockStore.sendStock(form.value);
 };
 </script>
@@ -52,12 +52,12 @@ const sendStock = async () => {
                 <div class="mb-2">
                     <label for="country" class="block text-sm font-medium text-gray-700">Barang</label>
                     <select
-                        v-model="form.barangId"
+                        v-model="form.productId"
                         id="barang"
                         autocomplete="barang-name"
                         class="block w-full px-3 py-2 mt-1 bg-white border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     >
-                        <option v-for="barang in barangs" :key="barang.id" :value="barang.id">{{ barang.nama }}</option>
+                        <option v-for="barang in barangs" :key="barang.id" :value="barang.id">{{ barang.name }}</option>
                     </select>
                 </div>
                 <div class="mb-2">
@@ -69,22 +69,22 @@ const sendStock = async () => {
                         class="block w-full px-3 py-2 mt-1 bg-white border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     >
                         <option v-for="shipper in shippers" :key="shipper.id" :value="shipper.id">
-                            {{ shipper.codeShipper + "-" + shipper.nama }}
+                            {{ shipper.shortName + "-" + shipper.name }}
                         </option>
                     </select>
                 </div>
                 <div class="mb-2">
-                    <label for="jumlah" class="block text-sm font-medium text-gray-700">Jumlah</label>
+                    <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity</label>
                     <input
                         v-model="form.stock"
                         type="number"
-                        id="jumlah"
+                        id="quantity"
                         class="block w-full px-3 py-2 border-2 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        placeholder="Jumlah"
+                        placeholder="Quantity"
                     />
                 </div>
                 <div class="mt-2">
-                    <button type="submit" class="block w-full py-2 text-white bg-gray-800 rounded-md">Simpan</button>
+                    <button type="submit" class="block w-full py-2 text-white bg-gray-800 rounded-md">Save</button>
                 </div>
             </form>
         </div>
