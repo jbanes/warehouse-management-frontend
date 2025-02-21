@@ -50,7 +50,7 @@ const sendStock = async () => {
         <div class="mt-10">
             <form @submit.prevent="sendStock" class="max-w-sm mx-auto">
                 <div class="mb-2">
-                    <label for="country" class="block text-sm font-medium text-gray-700">Barang</label>
+                    <label for="country" class="block text-sm font-medium text-gray-700">Product</label>
                     <select
                         v-model="form.productId"
                         id="barang"
@@ -61,7 +61,7 @@ const sendStock = async () => {
                     </select>
                 </div>
                 <div class="mb-2">
-                    <label for="ship" class="block text-sm font-medium text-gray-700">Pengirim</label>
+                    <label for="ship" class="block text-sm font-medium text-gray-700">Shipper</label>
                     <select
                         v-model="form.shipperId"
                         id="ship"
