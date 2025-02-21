@@ -36,7 +36,7 @@ const saveShipper = async () => {
         <div class="mt-10">
             <form @submit.prevent="saveShipper" class="max-w-sm mx-auto">
                 <div class="mb-2">
-                    <label for="name" class="block text-sm font-medium text-gray-700">Name pengirim</label>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name of Shipper</label>
                     <input
                         v-model="form.name"
                         type="text"
@@ -49,7 +49,7 @@ const saveShipper = async () => {
                     <span v-if="error.name" class="text-sm text-rose-500">{{ error.name }}</span>
                 </div>
                 <div class="mb-2">
-                    <label for="code" class="block text-sm font-medium text-gray-700">ID pengirim</label>
+                    <label for="code" class="block text-sm font-medium text-gray-700">ID of Shipper</label>
                     <input
                         v-model="form.shortName"
                         type="text"
