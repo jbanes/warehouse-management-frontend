@@ -68,7 +68,7 @@ onMounted(async () => {
                                                 <div class="text-sm text-slate-500">{{ shipping.type }}</div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-slate-900">{{ shipping.product }}</div>
+                                                <div class="text-sm text-slate-900">{{ shipping.name }}</div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="text-sm text-slate-900">{{ shipping.date }}</div>
