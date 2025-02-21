@@ -35,7 +35,7 @@ export const useStockStore = defineStore("stock", {
             try {
                 const response = await axiosInstance.post("/stock", stock);
                 response.data;
-                toast.success("Stock berhasil dikirim", toastOptions);
+                toast.success("Stock successfully sent", toastOptions);
                 router.push({ name: "home" });
             } catch (error) {
                 if (error.response.data.message === 'Stock not enough') {
