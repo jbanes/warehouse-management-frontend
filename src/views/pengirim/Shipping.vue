@@ -34,19 +34,19 @@ onMounted(async () => {
                                                 scope="col"
                                                 class="px-6 py-3 text-xs font-medium tracking-wider text-left uppercase text-slate-500"
                                             >
-                                                Tipe
+                                                Type
                                             </th>
                                             <th
                                                 scope="col"
                                                 class="px-6 py-3 text-xs font-medium tracking-wider text-left uppercase text-slate-500"
                                             >
-                                                Barang
+                                                Product
                                             </th>
                                             <th
                                                 scope="col"
                                                 class="px-6 py-3 text-xs font-medium tracking-wider text-left uppercase text-slate-500"
                                             >
-                                                Tanggal
+                                                Date
                                             </th>
                                         </tr>
                                     </thead>
@@ -64,14 +64,14 @@ onMounted(async () => {
                                         </tr>
                                         <tr v-else v-for="(shipping, index) in shippings" :key="index">
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-slate-900">{{ shipping.stok }}</div>
-                                                <div class="text-sm text-slate-500">{{ shipping.tipe }}</div>
+                                                <div class="text-sm text-slate-900">{{ shipping.stock }}</div>
+                                                <div class="text-sm text-slate-500">{{ shipping.type }}</div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-slate-900">{{ shipping.barang }}</div>
+                                                <div class="text-sm text-slate-900">{{ shipping.product }}</div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="text-sm text-slate-900">{{ shipping.tanggal }}</div>
+                                                <div class="text-sm text-slate-900">{{ shipping.date }}</div>
                                             </td>
                                         </tr>
                                     </tbody>
