@@ -60,7 +60,7 @@ const router = createRouter({
           path: '', component: () => import('@/views/pengirim/Index.vue'),
           name: 'pengirim.index',
           meta: {
-            title: `${import.meta.env.VITE_APP_NAME} - Pengirim`
+            title: `${import.meta.env.VITE_APP_NAME} - Shippers`
           },
         },
         {
@@ -68,7 +68,7 @@ const router = createRouter({
           name: 'pengirim.create',
           component: () => import('@/views/pengirim/Create.vue'),
           meta: {
-            title: `${import.meta.env.VITE_APP_NAME} - Tambah Pengirim`
+            title: `${import.meta.env.VITE_APP_NAME} - Add Shipper`
           }
         },
         {
@@ -76,7 +76,7 @@ const router = createRouter({
           name: 'pengirim.edit',
           component: () => import('@/views/pengirim/Edit.vue'),
           meta: {
-            title: `${import.meta.env.VITE_APP_NAME} - Edit Pengirim`
+            title: `${import.meta.env.VITE_APP_NAME} - Edit Shipper`
           }
         },
         {
@@ -95,7 +95,7 @@ const router = createRouter({
           name: 'ship.form',
           component: () => import('@/views/ship/Form.vue'),
           meta: {
-            title: `${import.meta.env.VITE_APP_NAME} - Form Pengiriman`
+            title: `${import.meta.env.VITE_APP_NAME} - Form Shipper`
           },
         },
       ]
